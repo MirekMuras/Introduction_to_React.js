@@ -1,5 +1,7 @@
-import React from 'react' ;
+import React, {Component} from 'react' ;
 import ReactDOM from 'react-dom';
+import YTSearch from 'youtube-api-search';
+import VideoList from './components/video_list';
 
 //@dev: path reference to the file
 import SearchBar from './components/search_bar';
@@ -8,13 +10,29 @@ import SearchBar from './components/search_bar';
 const API_KEY = 'AIzaSyDTHd_qouKYwgJQ4Xkzy1VSg9IYbLE2nL0';
 
 
-//@dev: Create a new HTML component of the page 
-const _App = () => {
-    return (
-    <div>
-        <SearchBar />
-    </div>
-    ); 
+
+//@dev: Create a new HTML component of the page. Functional Component
+class _App extends Component {                                          //class based component
+    constructor(props){                                                 //constructor function
+        super(props);
+
+        this.state = {videos:[] };                                      //list of videos starts as an empty array
+
+        YTSearch({key: API_KEY, term: 'surfboards'}, (videos) => {      //rendered function, and update the videos
+            this.setState({ videos });                                  //the same as ' this.setState({ videos: videos}); '
+        });
+    }
+
+
+    render() {
+         return (
+        <div>
+            <SearchBar />
+            <VideoList videos={this.state.videos} />
+        </div>
+        ); 
+    }
+   
 }
 
 //@dev: Take the HTML component's and put it on the page (DocumentObjectModel interface)
