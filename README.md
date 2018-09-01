@@ -1,6 +1,6 @@
 # Search Bar
 
-Interested in learning [Redux](https://www.udemy.com/react-redux/)?
+Project were I was learning JavaScript using React.js framework.
 
 
 #### Familiar with Git?
