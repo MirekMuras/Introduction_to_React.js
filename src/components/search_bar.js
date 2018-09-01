@@ -11,18 +11,23 @@ class SearchBar extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {term: 'Starting Value'};                                                        //initial input value is EMPTY
+        this.state = {term: ''};                //initial input value is EMPTY
     }
 
 
     render() {
     return (
-        <div>
+        <div className="search-bar">
             <input 
             value = {this.state.term}                                                   //controled input component set up by State
-            onChange = {event => this.setState({term: event.target.value})} />
+            onChange = {event => this.onInputChange(event.target.value)} />
         </div>
       );
+    }
+
+    onInputChange(term) {
+        this.setState({term});
+        this.props.onSearchTermChange(term);
     }
 }
 

@@ -22,8 +22,8 @@
   "dependencies": {
     "babel-preset-stage-1": "^6.1.18",
     "lodash": "^4.17.10",
-    "react": "16.4.2",
-    "react-dom": "16.4.2",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
     "react-redux": "5.0.7",
     "redux": "4.0.0",
     "youtube-api-search": "0.0.5"
